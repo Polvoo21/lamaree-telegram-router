@@ -1,0 +1,80 @@
+[
+  {
+    "name": "La Marée Петровка",
+    "target_chat_id": -1003910323053,
+    "rules": [
+      {
+        "field": "restoraunt",
+        "contains": "La Marée на Петровке"
+      }
+    ]
+  },
+  {
+    "name": "La Marée Малая Грузинская",
+    "target_chat_id": -1003845942443,
+    "rules": [
+      {
+        "field": "restoraunt",
+        "contains": "La Marée на Малой Грузинской"
+      }
+    ]
+  },
+  {
+    "name": "La Marée Жуковка",
+    "target_chat_id": -1003857610763,
+    "rules": [
+      {
+        "field": "restoraunt",
+        "contains": "La Marée в Жуковке"
+      }
+    ]
+  },
+  {
+    "name": "La Marée Смоленка",
+    "target_chat_id": -1003975942050,
+    "rules": [
+      {
+        "field": "restoraunt",
+        "contains": "La Marée на Смоленке"
+      }
+    ]
+  },
+  {
+    "name": "La Marée Санкт-Петербург",
+    "target_chat_id": -1003787385864,
+    "rules": [
+      {
+        "field": "restoraunt",
+        "contains": "La Marée в Санкт-Петербурге"
+      }
+    ]
+  },
+  {
+    "name": "La Marée Бортовой Кейтеринг",
+    "target_chat_id": -1003942246319,
+    "rules": [
+      {
+        "field": "form_name",
+        "contains": "Заявка на бортовой кейтеринг"
+      },
+      {
+        "field": "url",
+        "contains": "onboard-catering"
+      }
+    ]
+  },
+  {
+    "name": "La Marée Кейтеринг",
+    "target_chat_id": -1003804270077,
+    "rules": [
+      {
+        "field": "form_name",
+        "contains": "Заявка на кейтеринг"
+      },
+      {
+        "field": "url",
+        "contains": "/catering"
+      }
+    ]
+  }
+]
