@@ -1,6 +1,51 @@
 [
   {
-    "name": "La Marée Петровка",
+    "name": "La Marée — Петровка — Бортовое питание",
+    "target_chat_id": -1003942246319,
+    "match": "all",
+    "rules": [
+      {
+        "field": "restoraunt",
+        "contains": "La Marée на Петровке"
+      },
+      {
+        "field": "form_name",
+        "contains": "Заявка на бортовой кейтеринг"
+      }
+    ]
+  },
+  {
+    "name": "La Marée — Санкт-Петербург — Бортовое питание",
+    "target_chat_id": -5437980672,
+    "match": "all",
+    "rules": [
+      {
+        "field": "restoraunt",
+        "contains": "La Marée в Санкт-Петербурге"
+      },
+      {
+        "field": "form_name",
+        "contains": "Заявка на бортовой кейтеринг"
+      }
+    ]
+  },
+  {
+    "name": "La Marée — Смоленка — Кейтеринг",
+    "target_chat_id": -1003804270077,
+    "match": "any",
+    "rules": [
+      {
+        "field": "form_name",
+        "contains": "Заявка на кейтеринг"
+      },
+      {
+        "field": "url",
+        "contains": "/catering"
+      }
+    ]
+  },
+  {
+    "name": "La Marée — Петровка — Брони",
     "target_chat_id": -1003910323053,
     "rules": [
       {
@@ -10,7 +55,7 @@
     ]
   },
   {
-    "name": "La Marée Малая Грузинская",
+    "name": "La Marée — Малая Грузинская — Брони",
     "target_chat_id": -1003845942443,
     "rules": [
       {
@@ -20,7 +65,7 @@
     ]
   },
   {
-    "name": "La Marée Жуковка",
+    "name": "La Marée — Жуковка — Брони",
     "target_chat_id": -1003857610763,
     "rules": [
       {
@@ -30,7 +75,7 @@
     ]
   },
   {
-    "name": "La Marée Смоленка",
+    "name": "La Marée — Смоленка — Брони",
     "target_chat_id": -1003975942050,
     "rules": [
       {
@@ -40,40 +85,12 @@
     ]
   },
   {
-    "name": "La Marée Санкт-Петербург",
+    "name": "La Marée — Санкт-Петербург — Брони",
     "target_chat_id": -1003787385864,
     "rules": [
       {
         "field": "restoraunt",
         "contains": "La Marée в Санкт-Петербурге"
-      }
-    ]
-  },
-  {
-    "name": "La Marée Бортовой Кейтеринг",
-    "target_chat_id": -1003942246319,
-    "rules": [
-      {
-        "field": "form_name",
-        "contains": "Заявка на бортовой кейтеринг"
-      },
-      {
-        "field": "url",
-        "contains": "onboard-catering"
-      }
-    ]
-  },
-  {
-    "name": "La Marée Кейтеринг",
-    "target_chat_id": -1003804270077,
-    "rules": [
-      {
-        "field": "form_name",
-        "contains": "Заявка на кейтеринг"
-      },
-      {
-        "field": "url",
-        "contains": "/catering"
       }
     ]
   }
