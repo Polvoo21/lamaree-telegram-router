@@ -604,7 +604,17 @@ def get_webhook_display_value(key: str, value: str) -> str:
     return stripped_value
 
 
-def get_webhook_title(form_name: str) -> str:
+def get_webhook_title(form_name: str, source_url: str = "") -> str:
+    form_marker = normalize(f"{form_name} {source_url}")
+    if "бортов" in form_marker or "onboard-catering" in form_marker:
+        return "ЗАЯВКА НА БОРТОВОЕ ПИТАНИЕ"
+    if "достав" in form_marker or "/delivery" in form_marker:
+        return "ЗАЯВКА НА ДОСТАВКУ"
+    if "кейтеринг" in form_marker or "/catering" in form_marker:
+        return "ЗАЯВКА НА КЕЙТЕРИНГ"
+    if "брон" in form_marker or not form_name:
+        return "ЗАЯВКА НА БРОНЬ"
+
     cleaned_form_name = re.sub(
         r"^\s*заявка\s+на\s+",
         "",
@@ -612,8 +622,8 @@ def get_webhook_title(form_name: str) -> str:
         flags=re.IGNORECASE,
     ).strip()
     if not cleaned_form_name:
-        return "Новая заявка"
-    return f"Новая заявка: {cleaned_form_name}"
+        return "ЗАЯВКА"
+    return f"ЗАЯВКА: {cleaned_form_name.upper()}"
 
 
 def payload_to_tilda_message(
@@ -631,7 +641,7 @@ def payload_to_tilda_message(
     )
     source_url = get_first_payload_value(pairs, "url", "tildaspec-url", "tildaspec-referer") or referer
 
-    display_lines = [get_webhook_title(form_name), ""]
+    display_lines = [get_webhook_title(form_name, source_url), ""]
     routing_lines = ["Request details:"]
     for key, value in pairs:
         stripped_value = value.strip()

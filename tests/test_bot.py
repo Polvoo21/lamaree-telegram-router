@@ -27,7 +27,7 @@ class TildaMessageFormattingTests(unittest.TestCase):
 
         display_text, routing_text, transaction_id = bot.payload_to_tilda_message(pairs)
 
-        self.assertIn("Новая заявка: бортовой кейтеринг", display_text)
+        self.assertIn("ЗАЯВКА НА БОРТОВОЕ ПИТАНИЕ", display_text)
         self.assertIn("Компания: Андрей Хрещенюк", display_text)
         self.assertIn("Способ связи: Телефон", display_text)
         self.assertIn("Согласие на обработку данных: Да", display_text)
@@ -65,6 +65,38 @@ class TildaMessageFormattingTests(unittest.TestCase):
         route = bot.find_route(routing_text, self.routes)
         self.assertIsNotNone(route)
         self.assertEqual(route.name, "La Marée — Петровка — Брони")
+
+    def test_booking_without_form_name_has_clear_title(self) -> None:
+        pairs = [
+            ("restoraunt", "La Marée на Смоленке"),
+            ("name_2", "Тест"),
+            ("url", "https://example.test/smolenskaya"),
+        ]
+
+        display_text, _, _ = bot.payload_to_tilda_message(pairs)
+
+        self.assertTrue(display_text.startswith("ЗАЯВКА НА БРОНЬ\n"))
+
+    def test_delivery_has_clear_title(self) -> None:
+        pairs = [
+            ("restoraunt", "La Marée на Смоленке"),
+            ("Form Name", "Заявка на доставку"),
+            ("url", "https://example.test/delivery"),
+        ]
+
+        display_text, _, _ = bot.payload_to_tilda_message(pairs)
+
+        self.assertTrue(display_text.startswith("ЗАЯВКА НА ДОСТАВКУ\n"))
+
+    def test_catering_has_clear_title(self) -> None:
+        display_text, _, _ = bot.payload_to_tilda_message(
+            [
+                ("Form Name", "Заявка на кейтеринг"),
+                ("url", "https://example.test/catering"),
+            ]
+        )
+
+        self.assertTrue(display_text.startswith("ЗАЯВКА НА КЕЙТЕРИНГ\n"))
 
     def test_unknown_tilda_field_is_not_lost(self) -> None:
         display_text, _, _ = bot.payload_to_tilda_message([("delivery_window", "12:00-14:00")])
