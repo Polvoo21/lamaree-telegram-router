@@ -15,6 +15,21 @@
     ]
   },
   {
+    "name": "La Marée — Жуковка — Бортовое питание",
+    "target_chat_id": -5396027303,
+    "match": "all",
+    "rules": [
+      {
+        "field": "restoraunt",
+        "contains": "La Marée в Жуковке"
+      },
+      {
+        "field": "form_name",
+        "contains": "Заявка на бортовой кейтеринг"
+      }
+    ]
+  },
+  {
     "name": "La Marée — Санкт-Петербург — Бортовое питание",
     "target_chat_id": -5437980672,
     "match": "all",

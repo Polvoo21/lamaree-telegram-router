@@ -71,7 +71,7 @@ class TildaMessageFormattingTests(unittest.TestCase):
 
         self.assertIn("Delivery window: 12:00-14:00", display_text)
 
-    def test_all_eight_destinations_match_restaurant_and_form_type(self) -> None:
+    def test_all_nine_destinations_match_restaurant_and_form_type(self) -> None:
         route_cases = [
             ("La Marée на Петровке", "", "La Marée — Петровка — Брони"),
             ("La Marée на Малой Грузинской", "", "La Marée — Малая Грузинская — Брони"),
@@ -82,6 +82,11 @@ class TildaMessageFormattingTests(unittest.TestCase):
                 "La Marée на Петровке",
                 "Заявка на бортовой кейтеринг",
                 "La Marée — Петровка — Бортовое питание",
+            ),
+            (
+                "La Marée в Жуковке",
+                "Заявка на бортовой кейтеринг",
+                "La Marée — Жуковка — Бортовое питание",
             ),
             (
                 "La Marée в Санкт-Петербурге",
